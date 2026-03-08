@@ -5,6 +5,17 @@ KEY_CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 KEY_BASE = len(KEY_CHARS)
 
 
+def normalize(text):
+    text = text.lower()
+    cleaned = ""
+
+    for char in text:
+        if char in CHARSET:
+            cleaned += char
+
+    return cleaned
+
+
 def encode_to_number(text):
     num = 0
     for char in text:
@@ -38,6 +49,7 @@ def decode_from_number(num):
 
 
 def encode(text):
+    text = normalize(text)
     return number_to_key(encode_to_number(text))
 
 
