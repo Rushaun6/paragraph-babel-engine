@@ -1,11 +1,12 @@
 from babel_engine import encode, decode, key_to_number, number_to_key
 
-def explore(text, range_size=20):
+
+def explore(text, range_size=10):
 
     key = encode(text)
     number = key_to_number(key)
 
-    print("Original text:", text)
+    print("Query:", text)
     print("Key:", key)
     print("\nNearby paragraphs:\n")
 
@@ -22,4 +23,5 @@ def explore(text, range_size=20):
         print(new_key, ":", paragraph)
 
 
-explore("do dogs have ears")
+if __name__ == "__main__":
+    explore("do dogs have ears", 10)
