@@ -7,19 +7,18 @@ to travel across the world in seconds. Understanding how data can be
 encoded and decoded is an important concept in computer science.
 """
 
-result = encode(text)
+# encode returns a single key string in the current engine
+key = encode(text)
 
-encoded = result[0]
-key = result[1]
-
-decoded = decode(encoded, key)
+# decode takes that key and returns the (normalized) text
+decoded = decode(key)
 
 print("Original:", text)
 print("Key:", key)
-print("Encoded:", encoded)
 print("Decoded:", decoded)
 
-if decoded.strip() == "":
+# simple validation
+if decoded.strip() == "" or len(decoded) < 10:
     raise Exception("Decoding failed!")
 
 print("Test passed!")
