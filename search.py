@@ -10,8 +10,10 @@ key = sys.argv[2]
 
 decoded = decode(key)
 
-if word in decoded:
-    print("Word found!")
+count = decoded.count(word)
+
+if count > 0:
+    print(f"Word found {count} time(s)!")
 else:
     print("Word not found.")
 
